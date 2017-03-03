@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">First-Utility</string>
+    <string name="offline_msg">You are offline. Please connect with your wifi or mobile data.</string>
+    <string name="serverError">There is something wrong with sever. Please try again after some time!</string>
+</resources>

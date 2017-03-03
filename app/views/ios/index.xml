@@ -1,0 +1,30 @@
+<Alloy>
+    <Collection src="creators" />
+    <NavigationWindow>
+        <Window title="First-Utility">
+            <ListView id="lstCreators" defaultItemTemplate="tmplCreator" onItemclick="selectCreator">
+                <!-- search, shorthand with Ti.UI.SearchBar -->
+                <SearchBar class="search" platform="ios"/>
+                <Templates>
+                    <ItemTemplate name="tmplCreator">
+                        <View class="vLayout">
+                            <View class="height70 wSize left10 top10">
+                                <Label id="lblLetter" bindId="initLetter" class="left10 top0 txtAlignCenter colWhite"/>
+                                <Label bindId="fullName" class="left70 font16 top10 fontBold colViolet"/>
+                                <Label bindId="time" class="left70 font12 top30 colViolet"/>
+                            </View>
+                            
+                            <View backgroundColor="red" class="hLayout">
+                                <Label bindId="comics" class="top5"/>
+                                <Label bindId="stories" class="top5"/>
+                            </View>
+                        </View>
+                    </ItemTemplate>
+                </Templates>
+                <ListSection dataTransform="formatOutput" dataCollection="creators" >
+                    <ListItem userid="{id}" searchableText="{fullName}" class="height70" time:text="{modified}" comics:text="Comics - {comics}" initLetter:backgroundColor="{bgcolor}" initLetter:text="{iLetter}" fullName:text="{fullName}" />
+                </ListSection>
+            </ListView>
+        </Window>
+    </NavigationWindow>
+</Alloy>

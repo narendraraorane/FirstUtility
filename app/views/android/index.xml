@@ -1,0 +1,26 @@
+<Alloy>
+    <Collection src="creators" />
+    <Window>
+        <ListView id="lstCreators" separatorColor="#ccc"  defaultItemTemplate="tmplCreator" onItemclick="selectCreator">
+            <!-- search, shorthand with Ti.UI.Android.SearchView -->
+            <SearchView ns="Ti.UI.Android" class="search" platform="android"/>
+            <Templates>
+                <ItemTemplate name="tmplCreator">
+                    <View class="vLayout">
+                        <View class="height70 wSize hLayout left10 top10">
+                            <Label id="lblLetter" bindId="initLetter" class="txtAlignCenter colWhite"/>
+                            <Label bindId="fullName" class="left30 font16 fontBold colViolet"/>
+                        </View>
+                        <View backgroundColor="red" class="hLayout">
+                            <Label bindId="comics" class="top5"/>
+                            <Label bindId="stories" class="top5"/>
+                        </View>
+                    </View>
+                </ItemTemplate>
+            </Templates>
+            <ListSection dataTransform="formatOutput" dataCollection="creators" >
+                <ListItem userid="{id}" searchableText="{fullName}" class="height70" comics:text="Comics - {comics}" initLetter:backgroundColor="{bgcolor}" initLetter:text="{iLetter}" fullName:text="{fullName}" />
+            </ListSection>
+        </ListView>
+    </Window>
+</Alloy>

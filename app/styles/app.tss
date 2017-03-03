@@ -5,7 +5,7 @@ here will be applied throughout your app. However, these rules
 have the lowest priority of any style settings.
 
 For more information, see the "Style Priorities" section of
-http://docs.appcelerator.com/platform/latest/#!/guide/Alloy_Styles_and_Themes
+http://docs.appcelerator.com/titanium/latest/#!/guide/Alloy_Styles_and_Themes
 
 For example, the following would apply to all labels, windows,
 and text fields (depending on platform) in your app unless you
@@ -24,3 +24,346 @@ overrode the settings with other TSS, XML, or JS settings:
 }
 
 */
+
+/* Component's section */
+
+"TextField": {
+	color: "#000",
+	hintTextColor: "#7F7F7F",
+	paddingLeft: 5
+},
+"Window": {
+    //navBarHidden: true,
+    //backgroundColor: "#CCCCCC"
+},
+"ActivityIndicator": {
+	// color: "#DE8650",
+	// font: {fontFamily:'Helvetica Neue', fontSize:26, fontWeight:'bold'},
+	// message: 'Loading...',
+	opacity: 0.6,
+	backgroundColor: "#000",
+	style: Ti.UI.ActivityIndicatorStyle.BIG,
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	zIndex: 9
+},
+
+/* Background color section */
+
+".bgOrange": {
+	backgroundColor: "#EB7A23"
+},
+".bgBlue": {
+	backgroundColor: "#3EA1DC"
+},
+".bgGreen": {
+	backgroundColor: "#32A54A"
+},
+".bgWhite": {
+	backgroundColor: "#fff"
+},
+".bgBlack": {
+    backgroundColor: "#000"
+},
+".bgGray": {
+	backgroundColor: "#d3d3d3"
+},
+
+/* Font color and font sizes classes */
+
+".colWhite": {
+	color: "#FFFFFF"
+},
+".colGray": {
+    color: "#7C7C7C"
+},
+".colViolet": {
+    color: "#6E3A8B"
+},
+".font8": {
+    font: {
+        fontSize: 8
+    }
+},
+".font12": {
+	font: {
+		fontSize: 12
+	}
+},
+".font16": {
+	font: {
+		fontSize: 16
+	}
+},
+".font18": {
+    font: {
+        fontSize: 18
+    }
+},
+".font22": {
+	font: {
+		fontSize: 22
+	}
+},
+".font30": {
+    font: {
+        fontSize: 30
+    }
+},
+".fontBold": {
+	font: {
+		fontWeight: "Bold"
+	}
+},
+
+/* Layout classes */
+
+".vLayout": {
+	layout: "vertical"
+},
+".hLayout": {
+	layout: "horizontal"
+},
+
+/* Height and width classes */
+
+".hSize": {
+	height: Ti.UI.SIZE
+},
+".wSize": {
+	width: Ti.UI.SIZE
+},
+".wFill": {
+	width: Ti.UI.FILL	
+},
+".hFill": {
+	height: Ti.UI.FILL	
+},
+".cntWdtFill": {
+	contentWidth: Ti.UI.FILL
+},
+".cntHgt500": {
+    contentHeight: 500
+},
+".hlfPlatWidth": {
+	width: Alloy.Globals.halfPlatWidth
+},
+".hlfPlatWidth[platform=android]": {
+	width: "50%"
+},
+".height0" : {
+	height: 0	
+},
+".height10": {
+	height: 10 
+},
+".height15": {
+	height: 15
+},
+".height20": {
+    height: 20
+},
+".height30": {
+    height: 30
+},
+".height40": {
+	height: 40
+},
+".height45": {
+	height: 45
+},
+".height50": {
+	height: 50 
+},
+".height60": {
+	height: 60 
+},
+".height70": {
+	height: 70
+},
+".height80": {
+	height: 80
+},
+".height120": {
+	height: 120
+},
+".height200": {
+    height: 200
+},
+".height300": {
+    height: 300
+},
+".height400": {
+    height: 400
+},
+".height500": {
+    height: 500
+},
+".width10": {
+    width: 10 
+},
+".width20": {
+    width: 20 
+},
+".width30": {
+	width: 30 
+},
+".width40": {
+    width: 40 
+},
+".width50": {
+	width: 50 
+},
+".width60": {
+    width: 60 
+},
+".width80": {
+	width: 80 
+},
+".width120": {
+    width: 120
+},
+".width200": {
+    width: 200
+},
+".width230": {
+    width: 230
+},
+".width250": {
+	width: 250
+},
+".width300": {
+	width: 300
+},
+
+/* Position classes */
+
+".bottom0" : {
+	bottom: 0
+},
+".bottom3": {
+    bottom: 3
+},
+".bottom5": {
+    bottom: 5
+},
+".bottom10" : {
+    bottom: 10
+},
+".bottom15" : {
+    bottom: 15
+},
+".bottom40" : {
+    bottom: 40
+},
+".bottom60" : {
+	bottom: 60
+},
+".top0": {
+	top: 0	
+},
+".top2": {
+	top: 2	
+},
+".top5": {
+    top: 5
+},
+".top7": {
+    top: 7
+},
+".top9": {
+    top: 9
+},
+".top10": {
+    top: 10
+},
+".top15": {
+	top: 15
+},
+".top20": {
+	top: 20	
+},
+".top25": {
+    top: 25
+},
+".top30": {
+    top: 30
+},
+".top50": {
+    top: 50
+},
+".top60": {
+    top: 60
+},
+".top170": {
+    top: 170
+},
+".top200": {
+    top: 200
+},
+".left0": {
+	left: 0
+},
+".left5": {
+	left: 5
+},
+".left10": {
+	left: 10
+},
+".left15": {
+    left: 15
+},
+".left10%": {
+	left: "10%"
+},
+".left30": {
+	left: 30
+},
+".left70": {
+    left: 90
+},
+".right0": {
+	right: 0
+},
+".right10": {
+	right: 10	
+},
+".right10%": {
+	right: "10%"
+},
+".right25": {
+	right: 25
+},
+".right70": {
+	right: 70
+}
+
+/* Text Align Classes */
+
+".txtAlignCenter": {
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+},
+".txtAlignLeft": {
+    textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+},
+".txtAlignRight": {
+    textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+},
+
+
+/* Logo of app */
+
+".imgLogo" : {
+	//backgroundImage: "/images/common/logo.png",
+	width: 541,
+	height: 172
+},
+
+".pwdMask": {
+	passwordMask: true
+},
+".gray-line":{
+    backgroundColor: "#D7D7D7",
+    width: Ti.UI.FILL,
+    height: 2   
+}
