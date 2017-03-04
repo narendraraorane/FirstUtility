@@ -34,7 +34,7 @@ overrode the settings with other TSS, XML, or JS settings:
 },
 "Window": {
     //navBarHidden: true,
-    //backgroundColor: "#CCCCCC"
+    backgroundColor: "#FFF"
 },
 "ActivityIndicator": {
 	// color: "#DE8650",
@@ -60,7 +60,7 @@ overrode the settings with other TSS, XML, or JS settings:
 	backgroundColor: "#32A54A"
 },
 ".bgWhite": {
-	backgroundColor: "#fff"
+	backgroundColor: "#FFF"
 },
 ".bgBlack": {
     backgroundColor: "#000"
@@ -72,7 +72,7 @@ overrode the settings with other TSS, XML, or JS settings:
 /* Font color and font sizes classes */
 
 ".colWhite": {
-	color: "#FFFFFF"
+	color: "#FFF"
 },
 ".colGray": {
     color: "#7C7C7C"

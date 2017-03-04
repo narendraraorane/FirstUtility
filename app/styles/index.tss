@@ -1,9 +1,42 @@
-"ListView": {
-    //editing: true
-    allowsSelection: true
+"#lstCreators": {
+    defaultItemTemplate: "tmplCreator",
+    top:50,
+    separatorColor: "#CCC"
 },
-"#lblLetter": {
+"#vwLetter": {
     borderRadius: 25,
     height: 50,
     width: 50
-}
+},
+"#txtCreatorSearch": {
+    hintText: L("srcHintText"),
+    returnKeyType: Ti.UI.RETURNKEY_DEFAULT,
+    backgroundColor: "transparent",
+    height: 40,
+    left: 40,
+    right: 30
+},
+".search": {
+    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    color: "#999"
+},
+".icon-search":{
+    font:{
+        fontFamily:"icomoon",
+        fontSize:22,
+    },
+    text: "\uf002",     //Unicode for Search icon font
+    color: "#999",
+    width: 30
+},
+".icon-close":{
+    font:{
+        fontFamily:"icomoon",
+        fontSize:24,
+    },
+    text: "\uf057",     // Unicode for close icon font
+    color: "#999",
+    height: 40,
+    width: 30,
+    visible: false
+},
