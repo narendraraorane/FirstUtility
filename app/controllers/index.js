@@ -22,8 +22,8 @@ var data = require("/data"),
     moment = require("alloy/moment");
 
 /**
- * Return inital lettter of name in capital format.
- * @return {String} Initial letter in capital form.
+ * Return string with initial letter in capital format.
+ * @return {String} string with initial letter in capital form.
  */
 String.prototype.initCaps = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -34,7 +34,6 @@ String.prototype.initCaps = function() {
  */
 var creators = Alloy.Collections.instance("creators");
 creators.fetch();
-Ti.API.info('length ==> ' + creators.length);
 
 /**
  * This is to check if data is present locally or not.
@@ -48,7 +47,7 @@ if (creators.length !== 0) {
 }
 
 /**
- * This method act as destrucotr for this class.
+ * This method act as destructor for this class.
  */
 
 function destroy() {
@@ -60,7 +59,7 @@ function destroy() {
 /**
  * Hides the keyboard when the cancel button is clicked
  *
- * @param {Object} Event data passed to the function
+ * @param {Object} e Event data passed to the function
  */
 function srchCancel(e) {
     $.closeBtn.visible = false;
@@ -76,8 +75,6 @@ function srchCancel(e) {
  */
 
 function openFullScreen(e) {
-    Ti.API.info('e ==> ' + JSON.stringify(e));
-
     var scaleUp = Ti.UI.createAnimation({
         top : 0,
         left : 0,
@@ -91,7 +88,6 @@ function openFullScreen(e) {
         x : e.x,
         y : e.y
     }, $.win);
-    Ti.API.info("point ==> " + point.x + " " + point.y);
 
     var lblAnimate = $.UI.create("Label", {
         left : 25,
@@ -131,7 +127,6 @@ function openFullScreen(e) {
 
 function init() {
     data.getCharacterData(function() {
-        Ti.API.info('callback function called!');
         lazyLoad();
     });
 }
@@ -177,7 +172,6 @@ function lazyLoad() {
 function formatOutput(model) {
     // Need to convert the model to a JSON object
     var transform = model.toJSON();
-    //Ti.API.info("transform ==> " + JSON.stringify(transform));
     // Capitalized initial letter.
     transform.iLetter = _.first(transform.firstName.initCaps());
     // Add random background color to initial letter.

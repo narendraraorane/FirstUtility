@@ -1,3 +1,6 @@
+"#win[platform=android]": {
+    exitOnClose: true
+},
 "#lstCreators": {
     defaultItemTemplate: "tmplCreator",
     separatorColor: "#CCC"
