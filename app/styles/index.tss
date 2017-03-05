@@ -14,6 +14,9 @@
     left: 40,
     right: 30
 },
+"#title[platform=ios]": {
+    text: "First-Utility"
+}
 ".search": {
     //textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     backgroundColor: "transparent",

@@ -36,8 +36,6 @@ var creators = Alloy.Collections.instance("creators");
 creators.fetch();
 Ti.API.info('length ==> ' + creators.length);
 
-$.txtCreatorSearch.focus();
-
 /**
  * This is to check if data is present locally or not.
  * If it is present locally, fetch the data from local database(.sqlite).
@@ -47,10 +45,6 @@ if (creators.length !== 0) {
     openWin();
 } else {
     init();
-}
-
-if (OS_IOS) {
-    Alloy.Globals.navWindow = $.index;
 }
 
 /**
@@ -102,10 +96,10 @@ function openFullScreen(e) {
     var lblAnimate = $.UI.create("Label", {
         left : 25,
         top : (point.y - 30),
-        text : e.source.text,
+        text : e.text || e.source.text,
         width : 40,
         height : 40,
-        backgroundColor : e.source.parent.backgroundColor || "red",
+        backgroundColor : e.backgroundColor || e.source.parent.backgroundColor || "red",
         classes : ["txtAlignCenter", "colWhite", "font18", "fontBold"]
     });
     lblAnimate.addEventListener("click", function(e) {
@@ -204,6 +198,15 @@ if (Ti.App.deployType !== "production") {
  * Open window.
  */
 function openWin() {
-    (OS_IOS) ? $.index.open() : $.win.open(); // jshint ignore:line
+    if(OS_IOS) {
+        var navWindow = $.UI.create("NavigationWindow", {
+            window: $.win
+        });
+        navWindow.open();
+        Alloy.Globals.navWindow = navWindow;
+    } else {
+        $.win.open();
+    }
+    $.txtCreatorSearch.focus();
     return;
 }

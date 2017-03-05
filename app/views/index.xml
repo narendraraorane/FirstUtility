@@ -1,1 +1,32 @@
-<Alloy/>
+<Alloy>
+    <Collection src="creators" />
+    <Window id="win" onClose="destroy" >
+        <TitleControl platform="ios">
+            <Label id="title" class="font18 fontBold colViolet"/>
+        </TitleControl>
+        <View class="bgGray height50 top0">
+            <Label class="icon-search left10" />
+            <TextField id="txtCreatorSearch" onChange="srchCreator" class="search font16" />
+            <Label id="closeBtn" class="icon-close right0" onClick="srchCancel" />
+        </View>
+        <ListView id="lstCreators" onItemclick="selectCreator">
+            <Templates>
+                <ItemTemplate name="tmplCreator">
+                    <View class="vLayout">
+                        <View class="height70 wSize left10 top10">
+                            <View id="vwLetter" class="left10 top0" bindId="vwLetter" >
+                                <Label id="lblLetter" onClick="openFullScreen" bindId="initLetter" class="txtAlignCenter font18 fontBold colWhite"/>
+                            </View>
+                            <Label bindId="fullName" class="left70 font16 top10 fontBold colViolet"/>
+                            <Label bindId="time" class="left70 font12 top30 colViolet"/>
+                        </View>
+                    </View>
+                </ItemTemplate>
+            </Templates>
+            <ListSection dataTransform="formatOutput" dataCollection="creators" >
+                <ListItem class="bgWhite" userid="{id}" searchableText="{fullName}" class="height70" time:text="{modified}"
+                vwLetter:backgroundColor="{bgcolor}" initLetter:text="{iLetter}" fullName:text="{fullName}" />
+            </ListSection>
+        </ListView>
+    </Window>
+</Alloy>
