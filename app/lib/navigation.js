@@ -1,3 +1,5 @@
+'use strict';
+
 exports.openWin = function(win) {
     if(OS_IOS) {
         Alloy.Globals.navWindow.open(win);

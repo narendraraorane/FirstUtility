@@ -2,23 +2,47 @@
 
 /*exported require, destroy, srchCancel, srchCreator, formatOutput */
 
-"use strict";
+/**
+* This is the main index.js file
+* @class Index
+* 
+* This class contains code to show inital page.
+*/
+
+'use strict';
 
 // Arguments passed into this controller can be accessed off of the `$.args` object directly or `arguments[0]`.
+
+/**
+ * Importing othere classes which are needed.
+ */
 var data = require("/data"),
     navManager = require("/navigation"),
+    utils = require("/utils"),
     moment = require("alloy/moment");
-var creators = Alloy.Collections.instance("creators");
 
+/**
+ * Return inital lettter of name in capital format.
+ * @return {String} Initial letter in capital form.
+ */
 String.prototype.initCaps = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+/**
+ * Creating singletone instance of collection to fetch data. 
+ */
+var creators = Alloy.Collections.instance("creators");
 creators.fetch();
-Ti.API.info('length == ' + creators.length);
+Ti.API.info('length ==> ' + creators.length);
 
 $.txtCreatorSearch.focus();
 
+/**
+ * This is to check if data is present locally or not.
+ * If it is present locally, fetch the data from local database(.sqlite).
+ * If it is not present then call webservice to get data and store it locally.
+ */
 if (creators.length !== 0) {
     openWin();
 } else {
@@ -30,16 +54,13 @@ if (OS_IOS) {
 }
 
 /**
- *
+ * This method act as destrucotr for this class.
  */
 
 function destroy() {
     data.cleanup();
-    // clean up binding
-    $.destroy();
-    data = null,
-    navManager = null,
-    moment = null;
+    $.destroy(); // clean up binding
+    data = null, navManager = null, moment = null; // jshint ignore:line
 }
 
 /**
@@ -53,6 +74,12 @@ function srchCancel(e) {
     $.lstCreators.searchText = '';
     $.txtCreatorSearch.blur();
 }
+
+/**
+ * Open the view in fullscreen mode along with zoom out animation.
+ *
+ * @param {Object} Event data passed to the function
+ */
 
 function openFullScreen(e) {
     Ti.API.info('e ==> ' + JSON.stringify(e));
@@ -79,7 +106,7 @@ function openFullScreen(e) {
         width : 40,
         height : 40,
         backgroundColor : e.source.parent.backgroundColor || "red",
-        classes : ["txtAlignCenter", "colWhite"]
+        classes : ["txtAlignCenter", "colWhite", "font18", "fontBold"]
     });
     lblAnimate.addEventListener("click", function(e) {
         var scaleDown = Ti.UI.createAnimation({
@@ -103,6 +130,10 @@ function openFullScreen(e) {
         });
     });
 }
+
+/**
+ * This is entry point for program if it doesn't have data present locally.
+ */
 
 function init() {
     data.getCharacterData(function() {
@@ -129,6 +160,14 @@ function srchCreator(e) {
     $.lstCreators.searchText = e.source.value;
 }
 
+/**
+ * Handles the list item click event
+ *
+ * @description This will open new controller to see details of selected creator.
+ *
+ * @param {Object} Event data passed to the function
+ */
+
 function selectCreator(e) {
     var row = $.lstCreators.sections[e.sectionIndex].getItemAt(e.itemIndex);
     row.properties.backgroundColor = "#FFF";
@@ -145,34 +184,26 @@ function formatOutput(model) {
     // Need to convert the model to a JSON object
     var transform = model.toJSON();
     //Ti.API.info("transform ==> " + JSON.stringify(transform));
-
     // Capitalized initial letter.
     transform.iLetter = _.first(transform.firstName.initCaps());
     // Add random background color to initial letter.
-    transform.bgcolor = getRandomColor();
+    transform.bgcolor = utils.getRandomColor();
     // Relative time in last seen.
     transform.modified = "Last seen - " + moment(transform.modified, [moment.ISO_8601]).fromNow();
     return transform;
 }
 
-function getRandomColor() {
-    var color = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
-    //Ti.API.info('color ==> ' + color);
-
-    if (color === "#FFFFFF" || color === "#000000") {
-        getRandomColor();
-    }
-
-    return color;
-}
-
+/**
+ * Run test cases only if deployment type is develoment or test.
+ */
 if (Ti.App.deployType !== "production") {
     //require("/runUnitTestCases").mochaRun();
 }
 
-exports.getRandomColor = getRandomColor;
-
+/**
+ * Open window.
+ */
 function openWin() {
-    (OS_IOS) ? $.index.open() : $.win.open();
+    (OS_IOS) ? $.index.open() : $.win.open(); // jshint ignore:line
     return;
 }

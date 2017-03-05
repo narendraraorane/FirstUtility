@@ -1,3 +1,5 @@
+'use strict';
+
 exports.isEmpty = function(str, msg, callback, noTrimFlag) {
 	if(typeof str === "string") {
 		if (!noTrimFlag) {
@@ -47,9 +49,20 @@ exports.isOnline = function(msg) {
 	if(Ti.Network.online) {
 		return true;
 	} else {
-		var msg = msg || L("offline_msg");		
+		msg = msg || L("offline_msg");		
 		_showAlert(msg, function() {
 			return false;
 		});
 	}
 };
+
+exports.getRandomColor = function() {
+    var color = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+    //Ti.API.info('color ==> ' + color);
+
+    if (color === "#FFFFFF" || color === "#000000") {
+        getRandomColor();
+    }
+
+    return color;
+}

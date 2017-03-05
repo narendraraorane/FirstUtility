@@ -1,55 +1,23 @@
 var should = require('/ti-mocha/should');
 
-module.exports = function(win, view) {
+module.exports = function() {
 
-    describe('customer', function() {
+    Ti.API.info('*******************************************');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*   \\o/ F I R S T - U T I L I T Y   \\o/ *');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*                                         *');
+    Ti.API.info('*******************************************');
 
-        describe('#myWindow', function() {
 
-            it('exists', function() {
-                should.exist(win);
-                win.id.should.equal('myWindow');
-            });
+    Ti.API.info('Oh, mocha test cases!');
 
-            it('has Ti.UI.Window functions', function() {
-                should(win.open).be.a.Function;
-                should(win.close).be.a.Function;
+    Ti.API.info('*******************************************');
+    Ti.API.info('* \\o/ T E S T  R U N  S T A R T E D \\o/ *');
+    Ti.API.info('*******************************************');
 
-                if (Ti.Platform.name === 'iPhone OS') {
-                    should(win.hideTabBar).be.a.Function;
-                }
-            });
 
-            it('has dimensions equal to the device', function() {
-                win.size.height.should.equal(Ti.Platform.displayCaps.platformHeight);
-                win.size.width.should.equal(Ti.Platform.displayCaps.platformWidth);
-            });
-
-        });
-
-        describe('#myView', function() {
-
-            it('exists', function(){
-                should.exist(view);
-                view.id.should.equal('myView');
-            });
-
-            it('has Ti.UI.View functions', function() {
-                should(view.add).be.a.Function;
-            });
-
-            it('is a child of window', function() {
-                win.children.length.should.equal(1);
-                should.exist(win.children[0]);
-                win.children[0].id.should.equal('myView');
-            });
-
-            it('view has same dimensions as window', function(){
-                view.size.height.should.equal(win.size.height);
-                view.size.width.should.equal(win.size.width);
-            });
-
-        });
-
-    });
 };

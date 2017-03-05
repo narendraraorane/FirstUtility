@@ -1,3 +1,5 @@
+'use strict';
+
 var utils = require("/utils"),
     xhr = require("/xhr"),
     url = require("/url");
@@ -10,7 +12,7 @@ exports.getCharacterData = function(callback) {
     };
 
     xhr.call(reqObj, function(resObj) {
-        var resObj = JSON.parse(resObj.data);
+        resObj = JSON.parse(resObj.data);
         if (resObj.code !== 200) {
             utils.showAlert(L("serverError"));
         } else {

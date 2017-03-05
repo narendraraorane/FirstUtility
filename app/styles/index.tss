@@ -10,14 +10,14 @@
 },
 "#txtCreatorSearch": {
     hintText: L("srcHintText"),
-    returnKeyType: Ti.UI.RETURNKEY_DEFAULT,
-    backgroundColor: "transparent",
     height: 40,
     left: 40,
     right: 30
 },
 ".search": {
-    textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    //textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+    backgroundColor: "transparent",
+    returnKeyType: Ti.UI.RETURNKEY_DEFAULT,
     color: "#999"
 },
 ".icon-search":{

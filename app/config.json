@@ -2,7 +2,6 @@
 	"global": {
         "wstimeout": 120000,
         "baseURL": "http://gateway.marvel.com/v1/",
-        "animationTime": 600,
         "apiKey": "98610c61460c8194f8af2ebdc7365013",
         "hash": "eaee2f36742716f42dbd4f5fe2653fbf",
         "timestamp": "1488374267207"
