@@ -42,7 +42,7 @@ describe('Utils file', function() {
 
     it('Test isValidEmail function', function () {
         var validEmail = "narendra.raorane@yahoo.co.in";
-        var invalidEmail = "narendraraorane@yahoo.co.india";
+        var invalidEmail = "narendraraorane@yahoo";
 
         should(utils.isValidEmail(validEmail)).be.a.Boolean;
         should(utils.isValidEmail(validEmail)).be.true;

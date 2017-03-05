@@ -191,7 +191,7 @@ function formatOutput(model) {
  * Run test cases only if deployment type is develoment or test.
  */
 if (Ti.App.deployType !== "production") {
-    //require("/runUnitTestCases").mochaRun();
+    require("/runUnitTestCases").mochaRun();
 }
 
 /**

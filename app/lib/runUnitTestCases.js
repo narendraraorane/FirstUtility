@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * Run test cases using tijasmin framework.
+ *
+ * @description It has dependency on jasmin framework which is used for unit testing in web.
+ *
+ */
+
 function jasminerun() {
 	var tijasmine = require("/tijasmine/tijasmine"),
 		reporter = new (require("/tijasmine/tijasmine-console").ConsoleReporter)();
@@ -19,11 +26,15 @@ function run() {
     behave.run();  	
 }
 
-// add a special mocha reporter that will time each test run using
-// our microsecond timer
+/**
+ * Custom reporter fuction for ti-mocha
+ * 
+ * @description Add a special mocha reporter that will time each test run using our microsecond timer.
+ * @param {Object} runner
+ */
+
 function $Reporter(runner) {
-	var started,
-		title;
+	var started, title, $results = [], failed = false;
 
 	runner.on('suite', function (suite) {
 		title = suite.title;
@@ -72,23 +83,26 @@ function $Reporter(runner) {
 	});
 };
 
-
+/**
+ * Setup ti-mocha and run unit test cases.
+ * @param {Object} callback This function get executed once all test cases execution has been finished.
+ */
 
 function mochaRun(callback) {
 	require('/ti-mocha/ti-mocha');
 	var $results = [], failed = false;
 
-	require('/specs/creatorSpec')();
+	require('/specs/creatorsSpec')();
 	require('/specs/config.test');
 	require('/specs/data.test');
 	require('/specs/device.test');
 	require('/specs/navigation.test');
 	require('/specs/url.test');
 	require('/specs/utils.test');
-	require('/specs/xhr.test');
+	//require('/specs/xhr.test');
 
 	mocha.setup({ 
-	    reporter: $Reporter, //'ti-spec-studio',   // the reporter to use with your tests
+	    reporter: 'ti-spec-studio',   // the reporter to use with your tests
 	    quiet: false // if true, suppress all console logging
 	});
 	

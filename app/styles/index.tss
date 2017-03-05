@@ -1,6 +1,5 @@
 "#lstCreators": {
     defaultItemTemplate: "tmplCreator",
-    top:50,
     separatorColor: "#CCC"
 },
 "#vwLetter": {
@@ -14,8 +13,8 @@
     left: 40,
     right: 30
 },
-"#title[platform=ios]": {
-    text: "First-Utility"
+"#title": {
+    text: L("app_name")
 }
 ".search": {
     //textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,

@@ -11,24 +11,24 @@ describe('URL file', function() {
     });
 
     it('Test getCharacterURL function', function () {
-        var url = "http://gateway.marvel.com/v1/public/creators?limit=5&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
+        var _url = 'http://gateway.marvel.com/v1/public/creators?limit=5&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207';
         var api = url.getCharacterURL(5);
         should(api).be.a.String;
-        should( api === url).be.true;
+        should(api === _url).be.true;
 
-        url = "http://gateway.marvel.com/v1/public/creators?limit=-5&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
+        _url = "http://gateway.marvel.com/v1/public/creators?limit=-5&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
         api = url.getCharacterURL(-5);
         should(api).be.a.String;
-        should( api === url).be.true;
+        should(api === _url).be.true;
 
-        url = "http://gateway.marvel.com/v1/public/creators?limit=0&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
+        _url = "http://gateway.marvel.com/v1/public/creators?limit=0&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
         api = url.getCharacterURL(0);
         should(api).be.a.String;
-        should( api === url).be.true;
+        should(api === _url).be.true;
 
-        url = "http://gateway.marvel.com/v1/public/creators?limit=undefined&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
+        _url = "http://gateway.marvel.com/v1/public/creators?limit=undefined&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207";
         api = url.getCharacterURL();
         should(api).be.a.String;
-        should( api === url).be.true;
+        should(api === _url).be.true;
     });
 });
