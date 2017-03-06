@@ -24,6 +24,7 @@
 },
 "#txtCreatorSearch": {
     hintText: L("srcHintText"),
+    color: "#7F7F7F",
     height: 40,
     left: 40,
     right: 30
