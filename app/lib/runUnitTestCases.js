@@ -100,6 +100,8 @@ function mochaRun(callback) {
 	require('/specs/url.test');
 	require('/specs/utils.test');
 	require('/specs/xhr.test');
+	require('/specs/index.test');
+	require('/specs/about.test');
 
 	mocha.setup({ 
 	    reporter: 'ti-spec-studio',   // the reporter to use with your tests
