@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Config file', function() {
+describe('Config file: ', function() {
 
     it('Test all existance of all properties and function', function() {
         should.exist(Alloy.CFG.wstimeout);

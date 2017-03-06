@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Navigation file', function() {
+describe('Device file: ', function() {
     var device = require("/device");
 
     it('Test all existance of all properties and function', function () {

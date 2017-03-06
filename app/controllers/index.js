@@ -196,7 +196,7 @@ function formatOutput(model) {
  * 
  */
 if (Ti.App.deployType !== "production") {
-    //require("/runUnitTestCases").mochaRun();
+    require("/runUnitTestCases").mochaRun();
 }
 
 /**

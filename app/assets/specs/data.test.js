@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Data file', function() {
+describe('Data file: ', function() {
     var data = require("/data");
 
     it('Test all existance of all properties and function', function () {

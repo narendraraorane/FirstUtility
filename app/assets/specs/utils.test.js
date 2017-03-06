@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Utils file', function() {
+describe('Utils file: ', function() {
     var utils = require("/utils");
 
     it('Test all existance of all properties and function', function () {

@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('XHR file', function() {
+describe('XHR file: ', function() {
     var xhr = require("/xhr");
 
     it('Test all existance of all properties and function', function () {

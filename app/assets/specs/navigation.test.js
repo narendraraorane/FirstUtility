@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Navigation file', function() {
+describe('Navigation file: ', function() {
     var navManager = require("/navigation");
 
     it('Test all existance of all properties and function', function () {

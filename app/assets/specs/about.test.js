@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-describe('Index file', function() {
+describe('About file: ', function() {
     var about = Alloy.createController("about");
     var win = about.getView();
 
@@ -9,11 +9,6 @@ describe('Index file', function() {
         should(about).be.a.Object;
         should(about.getView).be.a.Function;
         should.exist(win);
-        win.id.should.equal('win');
-    });
-
-    it('Window has dimensions equal to the device', function() {
-        win.size.height.should.equal(Ti.Platform.displayCaps.platformHeight);
-        win.size.width.should.equal(Ti.Platform.displayCaps.platformWidth);
+        win.id.should.equal('about');
     });
 });
