@@ -1,6 +1,6 @@
 var should = require('/ti-mocha/should');
 
-module.exports = function() {
+//module.exports = function() {
 
     Ti.API.info('*******************************************');
     Ti.API.info('*                                         *');
@@ -20,4 +20,4 @@ module.exports = function() {
     Ti.API.info('*******************************************');
 
 
-};
+//};

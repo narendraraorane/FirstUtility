@@ -92,10 +92,10 @@ function openFullScreen(e) {
     var lblAnimate = $.UI.create("Label", {
         left : 25,
         top : (point.y - 30),
-        text : e.text || e.source.text,
+        text : e.source.text,
         width : 40,
         height : 40,
-        backgroundColor : e.backgroundColor || e.source.parent.backgroundColor || "red",
+        backgroundColor : e.source.parent.backgroundColor || "red",
         classes : ["txtAlignCenter", "colWhite", "font18", "fontBold"]
     });
     lblAnimate.addEventListener("click", function(e) {
@@ -111,6 +111,7 @@ function openFullScreen(e) {
         });
     });
     $.win.add(lblAnimate);
+
     lblAnimate.animate(scaleUp, function() {
         lblAnimate.applyProperties({
             top : 0,
@@ -201,6 +202,14 @@ function openWin() {
     } else {
         $.win.open();
     }
-    $.txtCreatorSearch.focus();
+
     return;
+}
+
+/**
+* Pass focus on search textfield.
+*/
+
+function focusSrch() {
+    $.txtCreatorSearch.focus();
 }

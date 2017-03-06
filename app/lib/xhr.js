@@ -4,17 +4,15 @@ exports.call = function(reqObj, _callback) {
 	var xhr = Ti.Network.createHTTPClient({
 		timeout : Alloy.CFG.wstimeout,
 		onload : function(e) {
-			Ti.API.info("this.responseText on success ==> " + this.responseText);
 			_callback({
 				"success" : true,
 				"data" : this.responseText, // JSON.parse(this.responseText), // commented for temp purpose 
 			});
 		},
 		onerror : function(e) {
-			Ti.API.info("this.responseText on error ==> " + this.responseText);
 			_callback({
 				"success" : false,
-				"error" : JSON.parse(this.responseText)
+				"error" : this.responseText
 			});
 		}
 	});

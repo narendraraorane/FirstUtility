@@ -1,12 +1,12 @@
 <Alloy>
     <Collection src="creators" />
-    <Window id="win" class="vLayout" onClose="destroy" >
+    <Window id="win" onClose="destroy" >
         <TitleControl platform="ios">
             <Label id="title" class="font18 fontBold colViolet"/>
         </TitleControl>
-        <Label id="title" platform="android" class="height50 font18 fontBold colViolet"/>
-        <View class="bgGray height50">
-            <Label class="icon-search left10" />
+        <Label id="title" platform="android" class="top0 height50 font18 fontBold colViolet"/>
+        <View id="vwSearch" class="bgGray height50">
+            <Label class="icon-search left10" onClick="focusSrch" />
             <TextField id="txtCreatorSearch" onChange="srchCreator" class="search font16" />
             <Label id="closeBtn" class="icon-close right0" onClick="srchCancel" />
         </View>

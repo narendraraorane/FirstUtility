@@ -11,44 +11,41 @@ describe('XHR file', function() {
     });
 
     it('Test encodeData function', function () {
-        var data = encodeData({'id': 5}, Alloy.CFG.baseURL + "public/creators");
-        // TODO Open a JIRA ticket for parity! iOS encodes exclamation points, Windows/Android do not
-        if (OS_IOS) {
-            data.should.eql('http://gateway.marvel.com/v1/public/creators?id=5');
-        } else {
-            data.should.eql('Look%20what%20I%20found!%20I%20like%20this%3A');
-        }
+        var data = xhr.encodeData({'id': 5}, Alloy.CFG.baseURL + "public/creators");
+        should(data).eql('http://gateway.marvel.com/v1/public/creators?id=5');
     });
 
     it('Test invalid xhr call', function () {
         var reqObj = {
             "action" : "GET",
-            "url" : Alloy.CFG.baseURL
+            "url" : Alloy.CFG.baseURL + "public/creators?limit=5"
         };        
         xhr.call(reqObj,function(resObj) {
             should(resObj).not.be.undefined;
-            should(resObj).be.a.String;
-            resObj = JSON.parse(resObj);
             should(resObj).be.a.Object;
-            should(resObj.code).be.a.Number;
-            should((resObj.code ===  403)).be.true;
-        })
+            should(resObj.success).be.a.Boolean;
+            should(resObj.success).be.false;
+            resObj = JSON.parse(resObj.error);
+            should(resObj).be.a.Object;
+            should(resObj.code).be.a.String;
+            should((resObj.code ===  "MissingParameter")).be.true;
+        });
     });
 
     it('Test valid xhr call', function () {
         var reqObj = {
             "action" : "GET",
-            "url" : url.getCharacterURL(5)
+            "url" : Alloy.CFG.baseURL + "public/creators?limit=5&apikey=98610c61460c8194f8af2ebdc7365013&hash=eaee2f36742716f42dbd4f5fe2653fbf&ts=1488374267207"
         };        
         xhr.call(reqObj,function(resObj) {
             should(resObj).not.be.undefined;
-            should(resObj).be.a.String;
-            resObj = JSON.parse(resObj);
             should(resObj).be.a.Object;
+            should(resObj.success).be.a.Boolean;
+            should(resObj.success).be.true;
+            resObj = JSON.parse(resObj.data);
             should(resObj.code).be.a.Number;
             should((resObj.code ===  200)).be.true;
             should(resObj.data.results).be.a.Array;
-            
             var len = resObj.data.results.length;
             should(len).be.a.Number;
             should((len <= 5)).be.true;
@@ -56,7 +53,7 @@ describe('XHR file', function() {
             if(len > 0) {
                 should(resObj.data.results[0]).be.Object;
             }
-        })
+        });
     });
 
 });

@@ -92,14 +92,14 @@ function mochaRun(callback) {
 	require('/ti-mocha/ti-mocha');
 	var $results = [], failed = false;
 
-	require('/specs/creatorsSpec')();
+	require('/specs/creatorsSpec');
 	require('/specs/config.test');
 	require('/specs/data.test');
 	require('/specs/device.test');
 	require('/specs/navigation.test');
 	require('/specs/url.test');
 	require('/specs/utils.test');
-	//require('/specs/xhr.test');
+	require('/specs/xhr.test');
 
 	mocha.setup({ 
 	    reporter: 'ti-spec-studio',   // the reporter to use with your tests

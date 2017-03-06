@@ -1,9 +1,21 @@
+"ListView": {
+    defaultItemTemplate: "tmplCreator",
+    separatorColor: "#CCC"
+},
 "#win[platform=android]": {
     exitOnClose: true
 },
-"#lstCreators": {
-    defaultItemTemplate: "tmplCreator",
-    separatorColor: "#CCC"
+"#lstCreators[platform=ios]": {
+    top: 50
+},
+"#lstCreators[platform=android]": {
+    top: 100
+},
+"#vwSearch[platform=ios]": {
+    top: 0
+},
+"#vwSearch[platform=android]": {
+    top: 50
 },
 "#vwLetter": {
     borderRadius: 25,
