@@ -3,7 +3,7 @@
         <TitleControl platform="ios">
             <Label id="lblTitle" class="font18 fontBold colViolet"/>
         </TitleControl>
-        <Label id="lblTitle" platform="android" class="top0 height50 font18 fontBold colViolet"/>
+        <Label id="lblTitle" platform="android" class="bgGray wFill txtAlignCenter top0 height50 font18 fontBold colViolet"/>
         <WebView id="wvwAbout" onLoad="loadData" />
     </Window>
 </Alloy>

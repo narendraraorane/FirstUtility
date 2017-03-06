@@ -3,11 +3,25 @@ First-Utility Coding Task - Senior Software Engineer
 
 This project/app is cross platform app which can run on android and ios.
 
-It fetch data from Marvel public API and shows in listview format. In order to fetch creators info, you need to signup on Marvel. Once you signed in, you will get public key and private key. You have to use this keys while fetching data through REST API. [Here](http://dogfi.sh) is am example of how to call REST API.
+It fetch data from Marvel public API and shows in listview format. In order to fetch creators info, you need to signup on Marvel. Once you signed in, you will get public key and private key. You have to use this keys while fetching data through REST API. [Here](https://developer.marvel.com/documentation/getting_started) is am example of how to call REST API.
 
 Note - Please don't share your private key with anyone.
 
-![](https://i.imgflip.com/1kk1uy.gif)
+## iPhone
+
+![](https://imgflip.com/gif/1kv332.gif)
+
+## iPad
+
+![](https://imgflip.com/gif/1kv34g.gif)
+
+## Android phone
+
+![](https://imgflip.com/gif/1kv377.gif)
+
+## Android tablet
+
+![](https://imgflip.com/gif/1kv377.gif)
 
 ## Features of the app   
 
@@ -40,7 +54,7 @@ Note - Please don't share your private key with anyone.
 * Import into you appc workspace.
 * Run the project.
 
-# clone the repository
+### Clone the repository
 git clone https://github.com/narendraraorane/firstutility
 
 ### How does it work? ###
@@ -50,17 +64,25 @@ git clone https://github.com/narendraraorane/firstutility
 * Once data is arrived (either thorugh REST API or through Model), it shows in listview format.
 * While rendering, it addes few extra proeprties to model which is used in UI.
 
-## Author
+### Author
 
-* **Narendra Raorane**
+### Narendra Raorane ###
 ------------------------
 
 ### References ###
 
-* http://mathewsanders.com/animated-transitions-in-swift/
+* http://www.tidev.io/2014/05/14/duckumentation/
 
-* https://www.youtube.com/watch?v=B9sH_VxPPo4&t=513s
+* http://tonylukasavage.com/ti-mocha/
 
-* https://developer.apple.com/reference/uikit/uiviewcontroller
+* http://tonylukasavage.com/blog/2014/01/13/ti-mocha-mocha-testing-support-for-titanium/
 
-* https://github.com/lkzhao/ElasticTransition/blob/master/README.md
+* https://gist.github.com/lbrenman/0c18239184cec1c8c74b
+
+* http://titaniumninja.com/testing-titanium-mobile-applications-with-jasmine-and-sinon-part-i/
+
+* https://github.com/denvers/unit-test-titanium-alloy-project
+
+* http://www.innovapptive.com/blog/alloy-model-view-binding/
+
+* http://docs.appcelerator.com/platform/latest/#!/guide/Alloy_Data_Binding
