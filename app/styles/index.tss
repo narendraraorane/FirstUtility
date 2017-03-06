@@ -28,11 +28,10 @@
     left: 40,
     right: 30
 },
-"#title": {
+"#lblTitle": {
     text: L("app_name")
-}
+},
 ".search": {
-    //textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
     backgroundColor: "transparent",
     returnKeyType: Ti.UI.RETURNKEY_DEFAULT,
     color: "#999"
@@ -42,7 +41,7 @@
         fontFamily:"icomoon",
         fontSize:22,
     },
-    text: "\uf002",     //Unicode for Search icon font
+    text: "\uf002", //Unicode for Search icon font
     color: "#999",
     width: 30
 },
@@ -51,9 +50,9 @@
         fontFamily:"icomoon",
         fontSize:24,
     },
-    text: "\uf057",     // Unicode for close icon font
+    text: "\uf057", // Unicode for close icon font
     color: "#999",
     height: 40,
     width: 30,
     visible: false
-},
+}

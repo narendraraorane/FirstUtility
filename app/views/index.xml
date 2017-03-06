@@ -2,9 +2,9 @@
     <Collection src="creators" />
     <Window id="win" onClose="destroy" >
         <TitleControl platform="ios">
-            <Label id="title" class="font18 fontBold colViolet"/>
+            <Label id="lblTitle" class="font18 fontBold colViolet"/>
         </TitleControl>
-        <Label id="title" platform="android" class="top0 height50 font18 fontBold colViolet"/>
+        <Label id="lblTitle" platform="android" class="top0 height50 font18 fontBold colViolet"/>
         <View id="vwSearch" class="bgGray height50">
             <Label class="icon-search left10" onClick="focusSrch" />
             <TextField id="txtCreatorSearch" onChange="srchCreator" class="search font16" />
@@ -24,7 +24,8 @@
             </Templates>
             <ListSection dataTransform="formatOutput" dataCollection="creators" >
                 <ListItem class="bgWhite" userid="{id}" searchableText="{fullName}" class="height70" time:text="{modified}"
-                vwLetter:backgroundColor="{bgcolor}" initLetter:text="{iLetter}" fullName:text="{fullName}" />
+                vwLetter:backgroundColor="{bgcolor}" initLetter:text="{iLetter}" fullName:text="{fullName}"
+                comics="{comics}" events="{events}" stories="{stories}" series="{series}" />
             </ListSection>
         </ListView>
     </Window>

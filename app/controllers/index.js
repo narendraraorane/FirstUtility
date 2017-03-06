@@ -4,14 +4,12 @@
 
 /**
 * This is the main index.js file
-* @class Index
+* @class FirstUtility.Index
 * 
 * This class contains code to show inital page.
 */
 
 'use strict';
-
-// Arguments passed into this controller can be accessed off of the `$.args` object directly or `arguments[0]`.
 
 /**
  * Importing othere classes which are needed.
@@ -21,8 +19,7 @@ var data = require("/data"),
     utils = require("/utils"),
     moment = require("alloy/moment");
 
-/**
- * Return string with initial letter in capital format.
+/** Return string with initial letter in capital format.
  * @return {String} string with initial letter in capital form.
  */
 String.prototype.initCaps = function() {
@@ -101,7 +98,7 @@ function openFullScreen(e) {
     lblAnimate.addEventListener("click", function(e) {
         var scaleDown = Ti.UI.createAnimation({
             left : 25,
-            top : (point.y - 20),
+            top : (point.y - 17),
             width : 40,
             height : 40,
             duration : 1000
@@ -135,8 +132,8 @@ function init() {
 /**
  * Handles the SearchBar OnChange event
  *
- * @description On iOS we want the search bar to always be on top, so we use the onchange event to tie it back
- *              to the ListView
+ * On iOS we want the search bar to always be on top, so we use the onchange event to tie it back
+ * to the ListView
  *
  * @param {Object} Event data passed to the function
  */
@@ -153,7 +150,7 @@ function srchCreator(e) {
 /**
  * Handles the list item click event
  *
- * @description This will open new controller to see details of selected creator.
+ * This will open new controller to see details of selected creator.
  *
  * @param {Object} Event data passed to the function
  */
@@ -163,6 +160,18 @@ function selectCreator(e) {
     row.properties.backgroundColor = "#FFF";
     row.properties.selectedColor = "#FFF";
     $.lstCreators.sections[e.sectionIndex].updateItemAt(e.itemIndex, row);
+
+    if(e.bindId)
+        return;
+
+    var aboutWin = Alloy.createController("about", {
+        comics : row.properties.comics,
+        events: row.properties.events,
+        stories: row.properties.stories,
+        series: row.properties.series,
+        fullName: row.properties.searchableText
+    }).getView();
+    navManager.openWin(aboutWin);
 }
 
 function lazyLoad() {
@@ -182,11 +191,12 @@ function formatOutput(model) {
     return transform;
 }
 
-/**
+/*
  * Run test cases only if deployment type is develoment or test.
+ * 
  */
 if (Ti.App.deployType !== "production") {
-    require("/runUnitTestCases").mochaRun();
+    //require("/runUnitTestCases").mochaRun();
 }
 
 /**

@@ -2,7 +2,7 @@
 
 exports.openWin = function(win) {
     if(OS_IOS) {
-        Alloy.Globals.navWindow.open(win);
+        Alloy.Globals.navWindow.openWindow(win);
     } else {
         win.open();
     }
@@ -10,7 +10,7 @@ exports.openWin = function(win) {
 
 exports.close = function(win) {
     if(OS_IOS) {
-        Alloy.Globals.navWindow.close(win);
+        Alloy.Globals.navWindow.closeWindow(win);
     } else {
         win.close();
     }

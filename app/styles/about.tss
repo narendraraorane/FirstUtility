@@ -1,0 +1,6 @@
+"#wvwAbout": {
+    url: "/html/report.html"
+},
+"#wvwAbout[platform=android]": {
+    top: 50
+}

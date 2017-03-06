@@ -1,56 +1,77 @@
-<head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script type="text/javascript">
-        function drawPieChat() {
-            Highcharts.chart('container', {
-                chart : {
-                    plotBackgroundColor : null,
-                    plotBorderWidth : null,
-                    plotShadow : false,
-                    type : 'pie'
-                },
-                title : {
-                    text : 'Narendra Raorane'
-                },
-                tooltip : {
-                    pointFormat: '<b>{point.y}</b>'
-                },
-                plotOptions : {
-                    pie : {
-                        allowPointSelect : true,
-                        cursor : 'pointer',
-                        dataLabels : {
-                            enabled : true,
-                            format : '<b>{point.name}</b>',
-                            style : {
-                                color : (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width;height=device-height;">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Creators</title>
+        <script type="text/javascript"  src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/highcharts.js"></script>
+        <script type="text/javascript">
+            function drawPieChat(e) {
+                Highcharts.chart('container', {
+                    chart : {
+                        plotBackgroundColor : null,
+                        plotBorderWidth : null,
+                        plotShadow : false,
+                        type : 'pie'
+                    },
+                    title : {
+                        text : ""
+                    },
+                    tooltip : {
+                        pointFormat : '<b>{point.y}</b>'
+                    },
+                    plotOptions : {
+                        pie : {
+                            allowPointSelect : true,
+                            cursor : 'pointer',
+                            dataLabels : {
+                                enabled : true,
+                                format : '<b>{point.name}</b>',
+                                style : {
+                                    color : (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
                             }
                         }
-                    }
-                },
-                series : [{
-                    name : 'Brands',
-                    colorByPoint : true,
-                    data : [{
-                        name : 'Comics',
-                        y : 1,
-                        color : 'red'
-                    }, {
-                        name : 'series',
-                        y : 2
-                    }, {
-                        name : 'stories',
-                        y : 4
-                    }, {
-                        name : 'events',
-                        y : 1
+                    },
+                    series : [{
+                        name : 'Category',
+                        colorByPoint : true,
+                        data : [{
+                            name : 'Comics',
+                            y : e.comics,
+                            color: '#8EACDD'
+                        }, {
+                            name : 'Series',
+                            y : e.series,
+                            color: '#66C2C6',
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name : 'Stories',
+                            y : e.stories,
+                            color:'#96CB57'
+                        }, {
+                            name : 'Events',
+                            y : e.events,
+                            color:'#4AD875'
+                        }]
                     }]
-                }]
-            });
-        }
-    </script>
-</head>
-<body>
-    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-</body>
+                });
+                Ti.App.removeEventListener("loadData", drawPieChat);
+            }
+
+            Ti.App.addEventListener("loadData", drawPieChat);
+        </script>
+        <style type="text/css">
+            div {
+                width: 100%;
+                height: 100;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+</html>

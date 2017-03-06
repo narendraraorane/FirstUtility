@@ -3,7 +3,7 @@
 /**
  * Run test cases using tijasmin framework.
  *
- * @description It has dependency on jasmin framework which is used for unit testing in web.
+ * It has dependency on jasmin framework which is used for unit testing in web.
  *
  */
 
@@ -29,7 +29,7 @@ function run() {
 /**
  * Custom reporter fuction for ti-mocha
  * 
- * @description Add a special mocha reporter that will time each test run using our microsecond timer.
+ * Add a special mocha reporter that will time each test run using our microsecond timer.
  * @param {Object} runner
  */
 
