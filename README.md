@@ -21,7 +21,7 @@ Note - Please don't share your private key with anyone.
 
 ## Android tablet
 
-![](https://imgflip.com/gif/1kv377.gif)
+![](First-Utility-AndroidTablet.gif)
 
 ## Features of the app   
 
