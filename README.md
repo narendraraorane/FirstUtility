@@ -9,15 +9,15 @@ Note - Please don't share your private key with anyone.
 
 ## iPhone
 
-![](https://imgflip.com/gif/1kv332.gif)
+![](First-Utility-iPhone.gif)
 
 ## iPad
 
-![](https://imgflip.com/gif/1kv34g.gif)
+![](First-Utility-iPad.gif)
 
 ## Android phone
 
-![](https://imgflip.com/gif/1kv377.gif)
+![](First-Utility-AndroidPhone.gif)
 
 ## Android tablet
 
