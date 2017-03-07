@@ -1,5 +1,17 @@
+/**
+* @class FirstUtility.Library.XHR
+* 
+* This class contains method to create instance of `Ti.Network.HTTPClient` to call webservice.
+* 
+*/
+
 'use strict';
 
+/**
+ * This method will call REST API and passon input parameter to REST.
+ * @param {Object} reqObj Request obejct which has all infor about which url to hit, which input parameters to pass, action of webservice.
+ * @param {Object} _callback Functon get's called on successful/unsuccessful execution.
+ */
 exports.call = function(reqObj, _callback) {
 	var xhr = Ti.Network.createHTTPClient({
 		timeout : Alloy.CFG.wstimeout,
@@ -34,6 +46,12 @@ exports.call = function(reqObj, _callback) {
 	}
 };
 
+/**
+ * Encode data so that it is compatible for webservice call. Espcially for GET request to send query parameters.
+ * @param {Object} obj Objects to encode
+ * @param {String} url Url after which you want to encode data.
+ * @rertun {String} Encode url string.
+ */
 function encodeData(obj, url) {
 	var str = [];
 	for (var p in obj) {

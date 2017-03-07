@@ -1,3 +1,10 @@
+/**
+* @class FirstUtility.Library.RunUnitTestCases
+* 
+* This class contains methods which are helpful to setup and run unit test cases.
+* Different frmework used in this class are tijasmine, timocha and behave.js
+*/
+
 'use strict';
 
 /**
@@ -15,6 +22,10 @@ function jasminerun() {
 	tijasmine.addReporter(reporter);
 	tijasmine.execute();	
 }
+
+/**
+ * This method run test cases using behave assertion library. It dont have any framework associated with him.
+ */
 
 function run() {
     var behave = require('/behave');

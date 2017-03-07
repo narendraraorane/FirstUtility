@@ -1,8 +1,20 @@
+/**
+* @class FirstUtility.Library.Data
+* 
+* This class contains method which call REST API to fetch creators info and store it in model (which is local database table).
+*/
+
 'use strict';
 
 var utils = require("/utils"),
     xhr = require("/xhr"),
     url = require("/url");
+
+/**
+ * This method fetch data from Marvel REST API to get creators info.
+ * @param {Object} callback On successful completion of web service this callback function will gets triggered.
+ * @return {Object} callback
+ */
 
 exports.getCharacterData = function(callback) {
     Ti.API.info('getCharacterData');
